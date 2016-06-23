@@ -1,0 +1,9 @@
+<nav search_view="search" color="#79ceb8">
+  <view name="dome9_overview_dashboard" default='true' />
+  <view name="search"  />
+  <view name="data_models" />
+  <view name="reports" />
+  <view name="alerts" />
+  <view name="dashboards" />
+  <a href="https://secure.dome9.com/account/logon">Dome9 Login</a>
+</nav>
