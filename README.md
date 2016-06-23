@@ -1,4 +1,4 @@
-#Splunk App for Dome9
+#Dome9 App for Splunk
 
 Splunk Technology Add-on for Dome9 Version 2.0
 
