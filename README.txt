@@ -2,7 +2,7 @@
 
 Splunk Technology Add-on for Dome9 Version 2.0
 
-This Splunk App is for people who have an account with Dome9 (http://www.Dome9.com) and want to gather their alerts into their on-premis Splunk or Splunk Cloud instance. Unlike the previous version, you will no longer need to have the App for AWS installed in order to pull the data from Evident. This solution will now use an AWS lambda function and the Splunk HTTP Event Collector (HEC). Here is what you will need in order to get this solution up and running in your AWS environment:
+This Splunk App is for people who have an account with Dome9 (http://www.Dome9.com) and want to gather their alerts into their on-premis Splunk or Splunk Cloud instance. Unlike the previous version, you will no longer need to have the App for AWS installed in order to pull the data from Dome9. This solution will now use an AWS lambda function and the Splunk HTTP Event Collector (HEC). Here is what you will need in order to get this solution up and running in your AWS environment:
 	
 	- A Configured Dome9 account that is sending data to an SNS topic in AWS
 	- AWS CLI tools (http://docs.aws.amazon.com/cli/latest/userguide/installing.html) 
@@ -16,7 +16,7 @@ Reference Material :
 	- http://docs.splunk.com/Documentation/Splunk/6.4.1/Data/UsetheHTTPEventCollector - Setup Splunk HTTP Event Collector 
 	- https://gist.github.com/glennblock/0d5e6384d93449d3e7c6 - Information on how to properly setup props.conf
 
-Here's a list of files that are added to your $SPLUNK_HOME/etc/apps/splunk_app_for_evidentio folder:
+Here's a list of files that are added to your $SPLUNK_HOME/etc/apps/dome9_app_splunk folder:
 
 	- default/props.conf
 
@@ -26,7 +26,7 @@ Steps to configure your deployment :
 
 	- Log into your Splunk instance and click on Settings -> Data Inputs -> HTTP Event Collector.  Click on Create New Token. Name the input "Dome9 Input" then click Next. 
 	
-	- Select the correct source type "aws:evidentio", leave the Default Index as "Default." Click Review, then Submit. 
+	- Select the correct source type "aws:dome9", leave the Default Index as "Default." Click Review, then Submit. 
 	- Copy the Token Value and keep it ready. 
 	- Finally, enable the token by clicking on "Global Settings" and enable the tokens.
 
