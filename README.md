@@ -26,7 +26,7 @@ Steps to configure your deployment :
 
 	- Log into your Splunk instance and click on Settings -> Data Inputs -> HTTP Event Collector.  Click on Create New Token. Name the input "Dome9 Input" then click Next. 
 	
-	- Select the correct source type "aws:evidentio", leave the Default Index as "Default." Click Review, then Submit. 
+	- Select the correct source type "aws:dome9", leave the Default Index as "Default." Click Review, then Submit. 
 	- Copy the Token Value and keep it ready. 
 	- Finally, enable the token by clicking on "Global Settings" and enable the tokens.
 
