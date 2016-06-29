@@ -2,7 +2,7 @@
 
 Splunk Technology Add-on for Dome9 Version 2.0
 
-This Splunk App is for people who have an account with Dome9 (http://www.Dome9.com) and want to gather their alerts into their on-premis Splunk or Splunk Cloud instance. Unlike the previous version, you will no longer need to have the App for AWS installed in order to pull the data from Evident. This solution will now use an AWS lambda function and the Splunk HTTP Event Collector (HEC). Here is what you will need in order to get this solution up and running in your AWS environment:
+This Splunk App is for people who have an account with Dome9 (http://www.Dome9.com) and want to gather their alerts into their on-premis Splunk or Splunk Cloud instance. Unlike the previous version, you will no longer need to have the App for AWS installed in order to pull the data from Dome9. This solution will now use an AWS lambda function and the Splunk HTTP Event Collector (HEC). Here is what you will need in order to get this solution up and running in your AWS environment:
 	
 	- A Configured Dome9 account that is sending data to an SNS topic in AWS
 	- AWS CLI tools (http://docs.aws.amazon.com/cli/latest/userguide/installing.html) 
