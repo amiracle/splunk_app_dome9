@@ -1,4 +1,4 @@
-#Splunk App for Dome9
+#Dome9 App for Splunk
 
 Splunk Technology Add-on for Dome9 Version 2.0
 
@@ -16,12 +16,12 @@ Reference Material :
 	- http://docs.splunk.com/Documentation/Splunk/6.4.1/Data/UsetheHTTPEventCollector - Setup Splunk HTTP Event Collector 
 	- https://gist.github.com/glennblock/0d5e6384d93449d3e7c6 - Information on how to properly setup props.conf
 
-Here's a list of files that are added to your $SPLUNK_HOME/etc/apps/dome9_app_splunk folder:
+Here's a list of files that are added to your $SPLUNK_HOME/etc/apps/splunk_app_dome9 folder:
 
 	- default/props.conf
 
 Steps to configure your deployment :
-- Step 1 - Download and install the Splunk App for Dome9 from Splunkbase (URL TBD)
+- Step 1 - Download and install the Splunk App for Dome9 from Splunkbase (https://splunkbase.splunk.com/app/3203)
 - Step 2 - Create HTTP Event Collector (HEC) Token Creation
 
 	- Log into your Splunk instance and click on Settings -> Data Inputs -> HTTP Event Collector.  Click on Create New Token. Name the input "Dome9 Input" then click Next. 
