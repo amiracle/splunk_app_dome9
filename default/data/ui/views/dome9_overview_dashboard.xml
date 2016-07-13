@@ -1,6 +1,6 @@
 <form>
   <label>Dome9 Overview Dashboard</label>
-  <fieldset submitButton="false">
+  <fieldset submitButton="true">
     <input type="time" token="time">
       <label>Time</label>
       <default>
@@ -12,7 +12,7 @@
       <label>Alert Types</label>
       <choice value="*">All</choice>
       <search>
-        <query>index=main sourcetype=aws:dome9 | stats count by FriendlyType</query>
+        <query>index=main sourcetype=aws-dome9 | stats count by FriendlyType</query>
         <earliest>-24h@h</earliest>
         <latest>now</latest>
       </search>
@@ -26,9 +26,9 @@
       <title>Alert Subjects</title>
       <chart>
         <search>
-          <query>index=main sourcetype=aws:dome9  | spath path=message output=x  | fields - _raw  | fields x  | mvexpand x  | spath input=x  | rename Records{} as records  | mvexpand records| top limit=20 "Records{}.Sns.Subject"</query>
-          <earliest>-24h@h</earliest>
-          <latest>now</latest>
+          <query>index=main sourcetype=aws-dome9  | spath path=message output=x  | fields - _raw  | fields x  | mvexpand x  | spath input=x  | rename Records{} as records  | mvexpand records| top limit=20 "Records{}.Sns.Subject"</query>
+          <earliest>$time.earliest$</earliest>
+          <latest>$time.latest$</latest>
         </search>
         <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
         <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
@@ -60,8 +60,9 @@
       <title>Alert Types</title>
       <chart>
         <search>
-          <query>index=main sourcetype=aws:dome9 | stats count by FriendlyType</query>
-          <earliest>0</earliest>
+          <query>index=main sourcetype=aws-dome9 | stats count by FriendlyType</query>
+          <earliest>$time.earliest$</earliest>
+          <latest>$time.latest$</latest>
         </search>
         <option name="charting.chart">pie</option>
         <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
@@ -93,10 +94,15 @@
       <table>
         <title>Users Logged In</title>
         <search>
-          <query>index=main sourcetype=aws:dome9 EventType=UserLogOnEvent | stats count by UserName</query>
-          <earliest>-15m</earliest>
-          <latest>now</latest>
+          <query>index=main sourcetype=aws-dome9 EventType=UserLogOnEvent | stats count by UserName</query>
+          <earliest>$time.earliest$</earliest>
+          <latest>$time.latest$</latest>
         </search>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">false</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="count">10</option>
       </table>
     </panel>
   </row>
@@ -106,9 +112,9 @@
       <table>
         <title>$alerttype$</title>
         <search>
-          <query>index=main sourcetype=aws:dome9  FriendlyType=$alerttype$ UserName="System" | rex field="message.Records{}.Sns.Message" "Description=(?&lt;desc&gt;[^,]+)"  | rename desc AS "Description of Alert", comm AS "Comments for Alert" | table Severity, UserName, EventType,  "Description of Alert" | sort +Severity</query>
-          <earliest>0</earliest>
-          <latest></latest>
+          <query>index=main sourcetype=aws-dome9  FriendlyType=$alerttype$ UserName= System  | rex field="message.Records{}.Sns.Message" "Description=(?&lt;desc&gt;[^,]+)"  | rename desc AS "Description of Alert", comm AS "Comments for Alert" | table Severity, UserName, EventType,  "Description of Alert" | sort +Severity</query>
+          <earliest>$time.earliest$</earliest>
+          <latest>$time.latest$</latest>
         </search>
         <option name="wrap">true</option>
         <option name="rowNumbers">false</option>
